@@ -202,6 +202,9 @@ func (s *RPCService) APIDescriptor(dst *APIDescriptor, host string) error {
 			return err
 		}
 	}
+	dst.Auth = &struct {
+		AllowCookie bool `json:"allowCookieAuth"`
+	}{true}
 	return nil
 }
 
